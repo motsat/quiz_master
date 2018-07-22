@@ -12,21 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2018_07_17_143511) do
 
-  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.text "content", null: false
-    t.bigint "question_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "title", null: false
-    t.text "description", null: false
-    t.integer "sequence", null: false
+    t.text "right_answer", null: false
+    t.integer "display_order", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sequence"], name: "index_questions_on_sequence", unique: true
+    t.index ["display_order"], name: "index_questions_on_display_order", unique: true
   end
 
 end
