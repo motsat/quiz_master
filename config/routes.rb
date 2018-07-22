@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root to: 'questions#show'
 
-  namespace :questions do
-    resources 'questions', only: %i(create)
+  resources :questions, only: %i(show) do
+    resources :answers, only: %i(create), controller: 'questions/answers'
   end
-  resources 'questions', only: %i(show)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
