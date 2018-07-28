@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th id
       %th title
       %th right_answer
       %th display_order
@@ -12,8 +13,10 @@
   %tbody
     - @questions.each do |question|
       %tr
+        %td 
+          = question.id
         %td.question-title 
-          = question.title
+          = strip_tags question.title
         %td 
           = question.right_answer
         %td 

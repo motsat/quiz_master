@@ -1,7 +1,7 @@
 %p#notice= notice
 %p
   %strong Title:
-  = @question.title
+  = @question.title.html_safe
 %p
   %strong RightAnswer:
   = @question.right_answer

@@ -21,6 +21,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'numbers_in_words'
 gem 'seed-fu'
 gem 'bootstrap-sass'
+gem 'tinymce-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

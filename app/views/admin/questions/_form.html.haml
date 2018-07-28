@@ -9,7 +9,8 @@
           %li= message
   .field
     = form.label :title
-    = form.text_field :title
+    = form.text_area :title, class: "tinymce"
+    = tinymce
   .field
     = form.label :right_answer
     = form.text_field :right_answer
