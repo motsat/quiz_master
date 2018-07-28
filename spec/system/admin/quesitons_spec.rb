@@ -12,6 +12,7 @@ RSpec.describe 'Admin::Questions', type: :system do
       expect(page.all(".question-title").map(&:text)).to eq  ["title1", "title2"]
     end
   end
+
   describe "#show" do
     before do
       visit admin_questions_path
@@ -52,10 +53,16 @@ RSpec.describe 'Admin::Questions', type: :system do
     end
   end
 
-  describe "#destroy" do
+  describe "#destroy", js: true do
     before do
-      FactoryBot.create(:question, title: "destroy target") 
+      FactoryBot.create(:question) 
       visit admin_questions_path
+    end
+ 
+    it "Questions to be created " do
+      accept_confirm { click_link 'Destroy' }
+      expect(page).to have_content "New Question"
+      expect(Question.count).to eq 0
     end
   end
 end
