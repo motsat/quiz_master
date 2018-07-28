@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'questions/index'
+    get 'questions/new'
+    get 'questions/create'
+    get 'questions/destroy'
+    get 'questions/update'
+  end
+  namespace :admin do
+    resources :questions
+  end
   root to: 'questions#show'
 
   resources :questions, only: %i(show) do
