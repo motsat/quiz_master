@@ -1,9 +1,13 @@
 class Question < ApplicationRecord
   validates :title, presence: true, length: { maximum: 300 }
   validates :right_answer, presence: true, length: { maximum: 100 }
-  validates :display_order, presence: true, uniqueness: true
+  validates :display_order, presence: true, uniqueness: true, numericality: { only_integer: true }
+
+  scope :remain_display_of, ->(question) do
+    where("display_order > ?", question.display_order).order(display_order: :asc)
+  end
 
   def next_question
-    Question.where("display_order > ?", display_order).order(display_order: :desc).first
+    Question.remain_display_of(self).first
   end
 end
