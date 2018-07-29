@@ -39,4 +39,7 @@ chdir APP_ROOT do
 
   puts "\n== Imporing Seed =="
   system! 'bin/rake db:seed_fu'
+
+  puts "\n== Precompiling Assets =="
+  system! 'bin/rake assets:precompile'
 end
