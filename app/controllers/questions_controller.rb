@@ -4,14 +4,9 @@ class QuestionsController < ApplicationController
   end
 
 private
-
-  def question_id
-    params[:id].presence || session[:question_id]
-  end
-
   def current_question
-    if question_id
-      Question.find question_id
+    if params[:id].present?
+      Question.find params[:id]
     else
       Question.order(display_order: :asc).first!
     end

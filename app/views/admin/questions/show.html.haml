@@ -1,13 +1,12 @@
 %p#notice= notice
 %p
-  %strong Title:
-  = @question.title.html_safe
+  %strong Content:
+  = @question.content.html_safe
 %p
   %strong RightAnswer:
   = @question.right_answer
 %p
   %strong DisplayOrder:
   = @question.display_order
-= link_to 'Edit', edit_admin_question_path(@question)
-|
-= link_to 'Back', admin_questions_path
+= link_to 'Edit', edit_admin_question_path(@question), class: 'btn btn-warning'
+= link_to 'Back', admin_questions_path, class: 'btn btn-info'

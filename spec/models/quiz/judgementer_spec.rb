@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Quiz::Judgement do
+RSpec.describe Quiz::Judgementer do
   describe "#right?" do
-    subject { Quiz::Judgement.new(question, answer).right? }
+    subject { Quiz::Judgementer.new(question, answer).right? }
 
     context "right answer type is number" do
       let(:question) { FactoryBot.build(:question, right_answer: right_answer) } 

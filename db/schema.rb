@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_07_17_143511) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "content", null: false
     t.text "right_answer", null: false
     t.integer "display_order", null: false
     t.datetime "created_at", null: false

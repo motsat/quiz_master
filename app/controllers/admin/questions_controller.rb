@@ -43,6 +43,6 @@ class Admin::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :right_answer, :display_order)
+    params.require(:question).permit(:content, :right_answer, :display_order)
   end
 end

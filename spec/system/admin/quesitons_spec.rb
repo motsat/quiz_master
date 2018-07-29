@@ -3,20 +3,20 @@ require 'rails_helper'
 RSpec.describe 'Admin::Questions', type: :system do
   describe "#index" do
     before do
-      FactoryBot.create(:question, title: "title1", display_order: 1) 
-      FactoryBot.create(:question, title: "title2", display_order: 2) 
+      FactoryBot.create(:question, content: "content1", display_order: 1) 
+      FactoryBot.create(:question, content: "content2", display_order: 2) 
       visit admin_questions_path
     end
 
     it 'list questions' do
-      expect(page.all(".question-title").map(&:text)).to eq  ["title1", "title2"]
+      expect(page.all(".question-content").map(&:text)).to eq  ["content1", "content2"]
     end
   end
 
   describe "#show" do
     before do
       visit admin_questions_path
-      FactoryBot.create(:question, title: "title1", display_order: 1) 
+      FactoryBot.create(:question, content: "content1", display_order: 1) 
       click_link "Show"
     end
   end
@@ -28,7 +28,7 @@ RSpec.describe 'Admin::Questions', type: :system do
     end
     context "valid" do
       before do
-        fill_in "question_title", with: "my title"
+        fill_in "question_content", with: "my content"
         fill_in "question_right_answer", with: "999"
         fill_in "question_display_order", with: 1
       end
@@ -40,7 +40,7 @@ RSpec.describe 'Admin::Questions', type: :system do
 
     context "invalid" do
       before do
-        fill_in "question_title", with: ""
+        fill_in "question_content", with: ""
         fill_in "question_right_answer", with: ""
         fill_in "question_display_order", with: ""
       end

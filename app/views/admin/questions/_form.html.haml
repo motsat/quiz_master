@@ -8,14 +8,16 @@
         - question.errors.full_messages.each do |message|
           %li= message
   .field
-    = form.label :title
-    = form.text_area :title, class: "tinymce"
+    = form.label :content
+    = form.text_area :content, class: "tinymce"
     = tinymce
   .field
     = form.label :right_answer
-    = form.text_field :right_answer
+    %br
+    = form.text_field :right_answer, class: 'form-control'
   .field
     = form.label :display_order
-    = form.text_field :display_order
+    %br
+    = form.number_field :display_order, class: 'form-control'
   .actions
-    = form.submit
+    = form.submit class: 'btn btn-warning'

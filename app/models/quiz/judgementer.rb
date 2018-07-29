@@ -1,4 +1,4 @@
-class Quiz::Judgement
+class Quiz::Judgementer
   def initialize(question, answer)
     @question = question
     @answer = answer
