@@ -3,22 +3,28 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+## Ruby version
 
-* Ruby version
+2.5.1
 
-* System dependencies
+## System dependencies
 
-* Configuration
+MySQL
 
-* Database creation
+## How to setup
 
-* Database initialization
+`bin/setup`
 
-* How to run the test suite
+## How to run
 
-* Services (job queues, cache servers, search engines, etc.)
+`bin/rails s`
 
-* Deployment instructions
+### Manage questions  
+http://localhost:3000/admin/questions
 
-* ...
+### Quiz mode
+http://localhost:3000/
+
+## How to test
+
+`bin/rspec`
